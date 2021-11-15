@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to P2W.
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{ category.name }} - P2W Game Store
+    {% else %}
+        See Our Game Collection - P2W
+    {% endif %}
+{% endblock %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-
+EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+crossorigin="anonymous">
+
+
+    <div class="ml-0">
+            
+            {% if user.is_authenticated %}
+    <h4>Hi {{ user.username }}! Welcome back to P2W</h3>
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% endif %}
+    
+
+    {% if category %}
+        <div>
+            <div>
+                <p><a href="{% url 'shop:allProdCat' %}">Our Game Collection</a> | {{category.name}}</p>
+            </div>
+        </div>
+    {% endif %}
+    <div>
+    {% if category %}
+        <img src="{{category.image.url}}" alt="{{category.name}}">
+    </div>
+    <br>
+    <div>
+        <h1 >{{category.name}}</h1>
+        <p>{{category.description}}</p>
+    </div>
+    {% else %}
+        <img src="{% static 'images/newbanner.png' %}" class="img-fluid w-100" alt="Our Products Collection">
+    </div>
+    <br>
+    <div class="container">
+        <h1 >Our Game Collection</h1>
+        <p>Browse our wide selection of games available on all platforms.</p>
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="d-flex flex-wrap flex-row bd-highlight">
+            {% for product in products %}
+                <div>
+                    <div class="btn btn-light mw-30">
+                        <a href="{{product.get_absolute_url}}"><img src="{{product.image.url}}" alt="{{product.name}}"></a>
+                        <div>
+                            <h4>{{product.name}}</h4>
+                            <p>€{{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+    </div>
+            {% endblock content %}
+        </div>
+                
+
+    
+   
+    
+    
