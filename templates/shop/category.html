@@ -55,11 +55,11 @@ crossorigin="anonymous">
     </div>
     {% endif %}
     <div class="container">
-        <div class="d-flex flex-wrap flex-row bd-highlight">
+        <div class="row ">
             {% for product in products %}
-                <div>
-                    <div class="btn btn-light mw-30">
-                        <a href="{{product.get_absolute_url}}"><img src="{{product.image.url}}" alt="{{product.name}}"></a>
+                <div class="col-4 pt-4">
+                    <div class="card h-100 bg-light py-2 mw-25">
+                        <a href="{{product.get_absolute_url}}" class="px-auto"><img src="{{product.image.url}}" alt="{{product.name}}" class=" col-10"></a>
                         <div>
                             <h4>{{product.name}}</h4>
                             <p>€{{product.price}}</p>

@@ -1,9 +1,8 @@
-<nav>
-    <ul>
-        <li><a href = "{% url 'shop:allProdCat' %}">Home</a></li>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item my-auto px-2"><a class="nav-link" href = "{% url 'shop:allProdCat' %}">Home</a></li>
         {% for cat in links %}
-            <a href= "{{cat.get_absolute_url}}"> {{cat.name}}</a>
-            <br>
+            <li class="nav-item my-auto px-2"><a class="nav-link" href= "{{cat.get_absolute_url}}"> {{cat.name}}</a></li>
         {% endfor %}
         <li>Your Cart</li>
     </ul>
