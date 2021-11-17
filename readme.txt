@@ -9,4 +9,8 @@ What i Worked on
 
  Cormac Gogan - X00179608
 What i Worked on
-
+•Navbar
+•Shop Functionality
+•Adding Categories and Products (images, descriptions and prices included)
+•Bootstrap grid for 'All products' segment using classes "row" and "col"
+•Base Templates and Views
